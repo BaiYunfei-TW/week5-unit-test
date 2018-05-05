@@ -50,15 +50,15 @@ public class GameControllerTest {
 
         gameController.beginGame();
         gameController.play(inputCommand);
-        String expect = "------Guess Number Game, You have 6 chances to guess!  ------\r\n";
-        expect += "Guess Result: " + game.guess(inputAnswer1).getResult()+"\r\n";
-        expect += "Guess History:\r\n";
-        expect += "[Guess Numbers: 2 3 4 5, Guess Result: 0A3B]\r\n";
-        expect += "Guess Result: " + game.guess(inputAnswer2).getResult()+"\r\n";
-        expect += "Guess History:\r\n";
-        expect += "[Guess Numbers: 2 3 4 5, Guess Result: 0A3B]\r\n";
-        expect += "[Guess Numbers: 1 2 3 4, Guess Result: 4A0B]\r\n";
-        expect += "Game Status: " + SUCCESS + "\r\n";
+        String expect = "------Guess Number Game, You have 6 chances to guess!  ------\n";
+        expect += "Guess Result: " + game.guess(inputAnswer1).getResult()+"\n";
+        expect += "Guess History:\n";
+        expect += "[Guess Numbers: 2 3 4 5, Guess Result: 0A3B]\n";
+        expect += "Guess Result: " + game.guess(inputAnswer2).getResult()+"\n";
+        expect += "Guess History:\n";
+        expect += "[Guess Numbers: 2 3 4 5, Guess Result: 0A3B]\n";
+        expect += "[Guess Numbers: 1 2 3 4, Guess Result: 4A0B]\n";
+        expect += "Game Status: " + SUCCESS + "\n";
 
         assertThat(expect, equalTo(outContent.toString()));
     }
@@ -85,15 +85,15 @@ public class GameControllerTest {
 
         gameController.beginGame();
         gameController.play(inputCommand);
-        String expect = "------Guess Number Game, You have 6 chances to guess!  ------\r\n";
+        String expect = "------Guess Number Game, You have 6 chances to guess!  ------\n";
         for (int i = 0; i < 6; i++) {
-            expect += "Guess Result: " + game.guess(inputAnswer[i]).getResult()+"\r\n";
-            expect += "Guess History:\r\n";
+            expect += "Guess Result: " + game.guess(inputAnswer[i]).getResult()+"\n";
+            expect += "Guess History:\n";
             for (int j = 0; j <= i; j++) {
-                expect += "[Guess Numbers: 2 3 4 5, Guess Result: 0A3B]\r\n";
+                expect += "[Guess Numbers: 2 3 4 5, Guess Result: 0A3B]\n";
             }
         }
-        expect += "Game Status: " + FAIL + "\r\n";
+        expect += "Game Status: " + FAIL + "\n";
 
         assertThat(expect, equalTo(outContent.toString()));
     }
