@@ -67,7 +67,7 @@ public class GameControllerTest {
     public void test_fail() throws OutOfRangeAnswerException, IOException {
 
         Answer actualAnswer = Answer.createAnswer("1 2 3 4");
-        
+
         Answer[] inputAnswer = new Answer[6];
         for (int i = 0; i < inputAnswer.length; i++) {
             inputAnswer[i] = Answer.createAnswer("2 3 4 5");
