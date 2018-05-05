@@ -25,6 +25,8 @@ public class GameControllerTest {
 
     ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
+    private String lineSeparator = System.getProperty("line.separator");
+
     @Before
     public void init() {
         System.setOut(new PrintStream(outContent));
@@ -50,15 +52,15 @@ public class GameControllerTest {
 
         gameController.beginGame();
         gameController.play(inputCommand);
-        String expect = "------Guess Number Game, You have 6 chances to guess!  ------\n";
-        expect += "Guess Result: " + game.guess(inputAnswer1).getResult()+"\n";
-        expect += "Guess History:\n";
-        expect += "[Guess Numbers: 2 3 4 5, Guess Result: 0A3B]\n";
-        expect += "Guess Result: " + game.guess(inputAnswer2).getResult()+"\n";
-        expect += "Guess History:\n";
-        expect += "[Guess Numbers: 2 3 4 5, Guess Result: 0A3B]\n";
-        expect += "[Guess Numbers: 1 2 3 4, Guess Result: 4A0B]\n";
-        expect += "Game Status: " + SUCCESS + "\n";
+        String expect = "------Guess Number Game, You have 6 chances to guess!  ------" + lineSeparator;
+        expect += "Guess Result: " + game.guess(inputAnswer1).getResult()+"" + lineSeparator;
+        expect += "Guess History:" + lineSeparator;
+        expect += "[Guess Numbers: 2 3 4 5, Guess Result: 0A3B]" + lineSeparator;
+        expect += "Guess Result: " + game.guess(inputAnswer2).getResult()+"" + lineSeparator;
+        expect += "Guess History:" + lineSeparator;
+        expect += "[Guess Numbers: 2 3 4 5, Guess Result: 0A3B]" + lineSeparator;
+        expect += "[Guess Numbers: 1 2 3 4, Guess Result: 4A0B]" + lineSeparator;
+        expect += "Game Status: " + SUCCESS + "" + lineSeparator;
 
         assertThat(expect, equalTo(outContent.toString()));
     }
@@ -85,15 +87,15 @@ public class GameControllerTest {
 
         gameController.beginGame();
         gameController.play(inputCommand);
-        String expect = "------Guess Number Game, You have 6 chances to guess!  ------\n";
+        String expect = "------Guess Number Game, You have 6 chances to guess!  ------" + lineSeparator;
         for (int i = 0; i < 6; i++) {
-            expect += "Guess Result: " + game.guess(inputAnswer[i]).getResult()+"\n";
-            expect += "Guess History:\n";
+            expect += "Guess Result: " + game.guess(inputAnswer[i]).getResult()+"" + lineSeparator;
+            expect += "Guess History:" + lineSeparator;
             for (int j = 0; j <= i; j++) {
-                expect += "[Guess Numbers: 2 3 4 5, Guess Result: 0A3B]\n";
+                expect += "[Guess Numbers: 2 3 4 5, Guess Result: 0A3B]" + lineSeparator;
             }
         }
-        expect += "Game Status: " + FAIL + "\n";
+        expect += "Game Status: " + FAIL + "" + lineSeparator;
 
         assertThat(expect, equalTo(outContent.toString()));
     }
