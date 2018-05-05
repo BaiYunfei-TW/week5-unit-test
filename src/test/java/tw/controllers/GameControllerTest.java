@@ -32,9 +32,9 @@ public class GameControllerTest {
 
     @Test
     public void test_success() throws OutOfRangeAnswerException, IOException {
-        //正确的答案
+
         Answer actualAnswer = Answer.createAnswer("1 2 3 4");
-        //测试的答案
+
         Answer inputAnswer1 = Answer.createAnswer("2 3 4 5");
         Answer inputAnswer2 = Answer.createAnswer("1 2 3 4");
 
@@ -65,9 +65,9 @@ public class GameControllerTest {
 
     @Test
     public void test_fail() throws OutOfRangeAnswerException, IOException {
-        //正确的答案
+
         Answer actualAnswer = Answer.createAnswer("1 2 3 4");
-        //测试的答案
+        
         Answer[] inputAnswer = new Answer[6];
         for (int i = 0; i < inputAnswer.length; i++) {
             inputAnswer[i] = Answer.createAnswer("2 3 4 5");
